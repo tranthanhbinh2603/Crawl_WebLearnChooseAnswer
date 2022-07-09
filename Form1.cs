@@ -16,5 +16,13 @@ namespace Crawl_WebLearnChooseAnswer
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Func_WebRequest func = new Func_WebRequest();
+            string link = "https://khoahoc.vietjack.com/thi-online/trac-nghiem-tieng-anh-11-unit-11-sources-of-energy-co-dap-an/69869/ket-qua";
+            richTextBox1.Text = func.Crawler_Khoahocdotvietjack(link);
+            
+        }
     }
 }
