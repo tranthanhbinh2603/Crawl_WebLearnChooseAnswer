@@ -20,7 +20,7 @@ namespace Crawl_WebLearnChooseAnswer
         private void button1_Click(object sender, EventArgs e)
         {
             Func_WebRequest func = new Func_WebRequest();
-            string link = "https://khoahoc.vietjack.com/thi-online/trac-nghiem-tieng-anh-11-unit-11-sources-of-energy-co-dap-an/69869/ket-qua";
+            string link = textBox1.Text;
             richTextBox1.Text = func.Crawler_Khoahocdotvietjack(link);
             
         }

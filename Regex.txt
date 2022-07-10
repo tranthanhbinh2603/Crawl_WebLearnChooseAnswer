@@ -1,3 +1,12 @@
-Câu hỏi <div class="question-name">.*?</div>
+Câu hỏi 
+Sinh:
+<div class="question-name">.*?</div>
 Câu trả lời: <div class="question-anwsews-list row">.*?<div class="col-xs-12">
-Đáp án: >Đáp án.*?</span></strong>
+=>  serif;">(.*?)</span></p> hoặc <div class="anwser-item .*?">.*?<p>(.*?)</p>
+
+
+Đáp án: <div class="question-reason">.*?</div> =>  >Đáp án (.*?)</span></strong>
+hoặc <strong>Đáp án.*?</strong> hoặc >Đáp án(.*?)</span></p> hoặc  => Đôi khi có bẫy!
+
+Có thể lập hàm lọc thẻ nhanh: >.*?<
+
