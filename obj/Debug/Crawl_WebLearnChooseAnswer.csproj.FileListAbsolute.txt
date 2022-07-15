@@ -11,3 +11,13 @@ C:\Users\Binh\Documents\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLe
 C:\Users\Binh\Documents\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.exe
 C:\Users\Binh\Documents\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.pdb
 C:\Users\Binh\Documents\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.Form1.resources
+E:\Document\Project\Crawl_WebLearnChooseAnswer\bin\Debug\Crawl_WebLearnChooseAnswer.exe.config
+E:\Document\Project\Crawl_WebLearnChooseAnswer\bin\Debug\Crawl_WebLearnChooseAnswer.exe
+E:\Document\Project\Crawl_WebLearnChooseAnswer\bin\Debug\Crawl_WebLearnChooseAnswer.pdb
+E:\Document\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.csproj.AssemblyReference.cache
+E:\Document\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.Form1.resources
+E:\Document\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.Properties.Resources.resources
+E:\Document\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.csproj.GenerateResource.cache
+E:\Document\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.csproj.CoreCompileInputs.cache
+E:\Document\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.exe
+E:\Document\Project\Crawl_WebLearnChooseAnswer\obj\Debug\Crawl_WebLearnChooseAnswer.pdb

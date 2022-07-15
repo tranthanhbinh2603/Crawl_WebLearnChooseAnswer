@@ -21,8 +21,13 @@ namespace Crawl_WebLearnChooseAnswer
         {
             Func_WebRequest func = new Func_WebRequest();
             string link = textBox1.Text;
-            richTextBox1.Text = func.Crawler_Khoahocdotvietjack(link);
-            
+
+            List<Question> list = new List<Question>();
+            list = func.Crawler_Khoahocdotvietjack(link);
+            foreach (var item in list)
+            {
+                richTextBox1.Text = item.question + "\n";
+            }
         }
     }
 }

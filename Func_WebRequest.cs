@@ -5,25 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using xNet;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Crawl_WebLearnChooseAnswer
 {
     class Func_WebRequest
     {
-        public string Crawler_Khoahocdotvietjack(string link)
+        public List<Question> Crawler_Khoahocdotvietjack(string link)
         {
+            List<Question> list = new List<Question>();
             HttpRequest httpre = new HttpRequest();
             httpre.Cookies = new CookieDictionary()
             {
                 {"cross-site-cookie", "bar" },
-                {"_ga", "GA1.2.713753729.1653561215" },
+                {"_ga", "GA1.2.724910773.1637054252" },
                 {"_fbp", "fb.1.1656583363610.990893404" },
-                {"XSRF-TOKEN", "eyJpdiI6ImREd2VWNjlxYmVUZHJqdUIzazRvbXc9PSIsInZhbHVlIjoibHJ4MmFpYXVpakROSDFZS3VCVkQ4UXFcL092QTVDeHhwTWl1Rm94NmZoMmJZWmk0RlwvbktaZ0thS25OQTl1SDQ2IiwibWFjIjoiZDljNmU3MTZiMzM2ODllYzNjNjI1ZTQxMTIxZWI2MmFlNzEyM2YzNjgwZWNlZmY2NTZjYzEwZjMwYTExOGQxMCJ9" },
-                {"khoahocvietjackcom_session", "eyJpdiI6IkdFYUlmdUdpNjc5b3dpT1IyXC8zcDRBPT0iLCJ2YWx1ZSI6Imo0S003OVZYdmlKUDNkekdQelM5KzNxWkVTNnVQSVcrUVc2UE01ZlRkR3RNQytjZ1I4aGdFQzhod3dSMWZ6RVFxZUNYa25XNndXVENpNGllSUtcLzlwd05lREd3K21yeThzbHJiNmdLZEhhc1llN2loREg5cGhCcjdlVGdGOG9wbCIsIm1hYyI6ImQ1YjdmZWZjYjI0YmY3NDMzMTBiMzJkNzc5MWFkNWE0MWE1MmU0YzViMGZkNDBkZmQ1MTc4ZWJhYTY5YmU0NDAifQ%3D%3D" }
+                {"XSRF-TOKEN", "eyJpdiI6IkR0SXNTOTZLc0xSbTdcL3p6MjZ6ZHJRPT0iLCJ2YWx1ZSI6IjdKcUlSTDNJWGlGZnErVVdMY0U3NzYxZDJvWUMyOUt1WVpUZSt2bEhQNWtIb3RmY1QxMEphYkZpWjgzbnVvcCsiLCJtYWMiOiIzZDI1MTEwYTE0OGM2NTQ3M2M2NTQwMWE2MGMyNjU2MGI4MTlmM2YxZDgzOTNjN2Q3OGM2ZjlhMzgyMTgzYzAyIn0" },
+                {"khoahocvietjackcom_session", "eyJpdiI6Ik8rS2RTRndDTkRMVmVqYU5oWFVSbXc9PSIsInZhbHVlIjoicFE3ZDlTM2JuRllLSnRhazJhSnVCdHR3ZTB4eTVWZG04NnQzUDJZN0EzVW1JUENTbThSMys5YXpVOUhGeGljd0hWWnRJNnFzcXM1aW5QY1FvRTY5OXFpazBwZWV0QXF0TE5IOXd5cWlxVXVyTzRLYTMzeG0xWW9LM0E1ZllQOGIiLCJtYWMiOiJlMzQyMTIyMDBkYzMwMzQxNzU0Y2E1ZTE2MzNkZjdjYWQyNDg5N2U0NWQ0NTc5NzBiNTA0ZmNiZDYxZTVmNzliIn0" }
             };
-            string res = httpre.Get(link).ToString();
-            res = WebUtility.HtmlDecode(res);
-            return res;
+            string res = WebUtility.HtmlDecode(httpre.Get(link).ToString());
+            Regex reg = new Regex(@"<div class=""question-name"">.*?</div>");
+            foreach (Match item in reg.Matches(res))
+            {
+                foreach (Capture i in item.Groups["q"].Captures)
+                {
+                    //Muốn lấy kết quả ra thì dùng (Tên biến chứa kết quả trong từng group).ToString();
+                    list.Add(new Question { question = i.ToString() });
+                }
+            }
+            return list;
         }
         
     }
