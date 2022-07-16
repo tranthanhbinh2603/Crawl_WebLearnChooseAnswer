@@ -24,15 +24,50 @@ namespace Crawl_WebLearnChooseAnswer
                 {"khoahocvietjackcom_session", "eyJpdiI6Ik8rS2RTRndDTkRMVmVqYU5oWFVSbXc9PSIsInZhbHVlIjoicFE3ZDlTM2JuRllLSnRhazJhSnVCdHR3ZTB4eTVWZG04NnQzUDJZN0EzVW1JUENTbThSMys5YXpVOUhGeGljd0hWWnRJNnFzcXM1aW5QY1FvRTY5OXFpazBwZWV0QXF0TE5IOXd5cWlxVXVyTzRLYTMzeG0xWW9LM0E1ZllQOGIiLCJtYWMiOiJlMzQyMTIyMDBkYzMwMzQxNzU0Y2E1ZTE2MzNkZjdjYWQyNDg5N2U0NWQ0NTc5NzBiNTA0ZmNiZDYxZTVmNzliIn0" }
             };
             string res = WebUtility.HtmlDecode(httpre.Get(link).ToString());
-            Regex reg = new Regex(@"<div class=""question-name"">.*?</div>");
-            foreach (Match item in reg.Matches(res))
+            Regex a = new Regex(@"<div class=""question-name"">(?<q>.*?)</div>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            foreach (Match item in a.Matches(res))
             {
                 foreach (Capture i in item.Groups["q"].Captures)
                 {
-                    //Muốn lấy kết quả ra thì dùng (Tên biến chứa kết quả trong từng group).ToString();
-                    list.Add(new Question { question = i.ToString() });
+                    string s1 = "";
+                    Regex regex1 = new Regex(@">(?<q1>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match match in regex1.Matches(i.ToString()))
+                    {
+                        foreach (Capture i2 in match.Groups["q1"].Captures)
+                        {
+                            if (i2.ToString().Trim() != "") s1 += i2.ToString().Trim() + "\n";
+                        }
+                    }
+                    list.Add(new Question { question = s1 });
                 }
             }
+            int i1 = 0;
+            Regex r2 = new Regex(@"<div class=""question-anwsews-list row"">(?<res1>.*?)<div class=""col-xs-12"">", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            foreach (Match match1 in r2.Matches(res))
+            {                
+                foreach (Capture capture in match1.Groups["res1"].Captures)
+                {
+                    string s1 = "";
+                    Regex regex1 = new Regex(@">(?<q1>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match match in regex1.Matches(capture.ToString()))
+                    {
+                        foreach (Capture i2 in match.Groups["q1"].Captures)
+                        {
+                            if (i2.ToString().Trim() != "") s1 += i2.ToString().Trim();
+                        }
+                    }
+                    Regex regex2 = new Regex(@"A.(?<a>.*?)B.(?<b>.*?)C.(?<c>.*?)D.(?<d>.*?)$", RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match match2 in regex2.Matches(s1))
+                    {
+                        list[i1].ans1 = match2.Groups["a"].Captures[0].ToString().Trim();
+                        list[i1].ans2 = match2.Groups["b"].Captures[0].ToString().Trim();
+                        list[i1].ans3 = match2.Groups["c"].Captures[0].ToString().Trim();
+                        list[i1].ans4 = match2.Groups["d"].Captures[0].ToString().Trim();
+                    }
+                    i1++;
+                }
+            }
+
             return list;
         }
         

@@ -26,7 +26,7 @@ namespace Crawl_WebLearnChooseAnswer
             list = func.Crawler_Khoahocdotvietjack(link);
             foreach (var item in list)
             {
-                richTextBox1.Text = item.question + "\n";
+                richTextBox1.Text += item.ans1 + "\n" + item.ans2 + "\n" + item.ans3 + "\n" + item.ans4 + "\n\n";
             }
         }
     }
