@@ -49,7 +49,7 @@ namespace Crawl_WebLearnChooseAnswer
                 if (q.correctAns.ToUpper() == "D") return "0 0 0 1 0";
                 if (q.correctAns.ToUpper() == "E") return "0 0 0 0 1";
             }
-            return "Error";
+            return "0 0 0 0";
         }
     }
 }

@@ -23,11 +23,7 @@ namespace Crawl_WebLearnChooseAnswer
             string link = textBox1.Text;
 
             List<Question> list = new List<Question>();
-            list = func.Crawler_Khoahocdotvietjack(link);
-            foreach (var item in list)
-            {
-                richTextBox1.Text += item.ans1 + "\n" + item.ans2 + "\n" + item.ans3 + "\n" + item.ans4 + "\n\n";
-            }
+            list = func.Crawler_Hoc247("https://hoc247.net/thi-online/vat-ly-11/trac-nghiem-vat-ly-11-bai-1-l1018.html?tid=554");
         }
     }
 }
