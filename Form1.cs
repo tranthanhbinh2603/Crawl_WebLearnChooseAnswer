@@ -23,7 +23,11 @@ namespace Crawl_WebLearnChooseAnswer
             string link = textBox1.Text;
 
             List<Question> list = new List<Question>();
-            list = func.Crawler_Hoc247("https://hoc247.net/thi-online/vat-ly-11/trac-nghiem-vat-ly-11-bai-1-l1018.html?tid=554");
+            list = func.Crawler_Hoc247(textBox1.Text);
+            foreach (var item in list)
+            {
+                richTextBox1.Text += item.question + "\n";
+            }
         }
     }
 }

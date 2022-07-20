@@ -129,6 +129,42 @@ namespace Crawl_WebLearnChooseAnswer
             //    {"khoahocvietjackcom_session", "eyJpdiI6Ik8rS2RTRndDTkRMVmVqYU5oWFVSbXc9PSIsInZhbHVlIjoicFE3ZDlTM2JuRllLSnRhazJhSnVCdHR3ZTB4eTVWZG04NnQzUDJZN0EzVW1JUENTbThSMys5YXpVOUhGeGljd0hWWnRJNnFzcXM1aW5QY1FvRTY5OXFpazBwZWV0QXF0TE5IOXd5cWlxVXVyTzRLYTMzeG0xWW9LM0E1ZllQOGIiLCJtYWMiOiJlMzQyMTIyMDBkYzMwMzQxNzU0Y2E1ZTE2MzNkZjdjYWQyNDg5N2U0NWQ0NTc5NzBiNTA0ZmNiZDYxZTVmNzliIn0" }
             //};
             string res = WebUtility.HtmlDecode(httpre.Get(link).ToString());
+            Regex reg = new Regex(@"<li class=""box-1 lch"">(?<Ques>.*?)</p>(.*?)</li>(.*?)</li>(.*?)</li>(.*?)</li>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            foreach (Match item in reg.Matches(res))
+            {
+                #region Câu hỏi
+                foreach (Capture i in item.Groups["Ques"].Captures)
+                {
+                    string ques = "";
+                    //Regex reg2 = new Regex(@"<p>(?<res>.*?)$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    //foreach (Match item2 in reg2.Matches(i.ToString()))
+                    //{
+                    //    foreach (Capture i2 in item2.Groups["res"].Captures)
+                    //    {
+                    //        ques = i2.ToString().Trim();
+                    //    }
+                    //}
+                    //Regex reg3 = new Regex(@"<p.*?>(?<res>.*?)$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    //foreach (Match item2 in reg3.Matches(i.ToString()))
+                    //{
+                    //    foreach (Capture i2 in item2.Groups["res"].Captures)
+                    //    {
+                    //        ques = i2.ToString().Trim();
+                    //    }
+                    //}
+
+                    Regex reg2 = new Regex(@"<a style=""width:100%;""(?<que>.*?)$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match item2 in reg2.Matches(i.ToString()))
+                    {
+                        foreach (Capture i2 in item2.Groups["que"].Captures)
+                        {
+                            ques = i2.ToString().Trim();
+                        }
+                    }
+                    list.Add(new Question() { question = ques });
+                }
+                #endregion
+            }
 
             return list;
         }
