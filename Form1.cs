@@ -26,8 +26,10 @@ namespace Crawl_WebLearnChooseAnswer
             list = func.Crawler_Hoc247(textBox1.Text);
             foreach (var item in list)
             {
-                richTextBox1.Text += item.question + "\n";
+                richTextBox1.Text += item.question + "\n\n\n\n";
             }
+
+            //richTextBox1.Text += func.getKQHoc247("1", "4");
         }
     }
 }
