@@ -23,13 +23,10 @@ namespace Crawl_WebLearnChooseAnswer
             string link = textBox1.Text;
 
             List<Question> list = new List<Question>();
-            list = func.Crawler_Hoc247(textBox1.Text);
-            foreach (var item in list)
-            {
-                richTextBox1.Text += item.question + "\n\n\n\n";
-            }
+            list = func.Crawler_DeThi_Hoc247(link);
+            Func_Utilities.ExportQuestion("Test", list);
 
-            //richTextBox1.Text += func.getKQHoc247("1", "4");
+            //richTextBox1.Text = func.Crawler_DeThi_Hoc247("https://hoc247.net/de-thi-hk2-mon-tin-hoc-11-nam-2021-2022-truong-thpt-tran-phu-ktdt15934.html");
         }
     }
 }
