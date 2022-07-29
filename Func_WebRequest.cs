@@ -201,9 +201,9 @@ namespace Crawl_WebLearnChooseAnswer
             List<Question> list = new List<Question>();
             xNetStandard.HttpRequest httpre = new xNetStandard.HttpRequest();
             string res = WebUtility.HtmlDecode(httpre.Get(link).ToString());
-            Regex reg = new Regex(@"<li class=""lch 336"">.*?<a(?<Ques>.*?)</a>.*?id=""dstl(?<id>.*?)"">(?<a>.*?)</li>(?<b>.*?)</li>(?<c>.*?)</li>(?<d>.*?)</li>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
             #endregion
             #region Xử lí số liệu
+            Regex reg = new Regex(@"<li class=""lch 336"">.*?<a(?<Ques>.*?)</a>.*?id=""dstl(?<id>.*?)"">(?<a>.*?)</li>(?<b>.*?)</li>(?<c>.*?)</li>(?<d>.*?)</li>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
             int z = 0;
             foreach (Match item in reg.Matches(res))
             {
@@ -273,6 +273,49 @@ namespace Crawl_WebLearnChooseAnswer
             }
             return list;
             #endregion
+        }
+
+        public List<Question> Crawler_Tracnghiemdotnet(string link)
+        {
+            #region Setting list và crawler
+            List<Question> list = new List<Question>();
+            xNetStandard.HttpRequest httpre = new xNetStandard.HttpRequest();
+            string res = WebUtility.HtmlDecode(httpre.Get(link).ToString());
+            #endregion
+            int i1 = 0;
+            Regex regex = new Regex(@"<li><a.*?=""(?<link>.*?)"".*?<h2>.*?</h2>(?<ques>.*?)</a>.*?<p>(?<a>.*?)</p>.*?<p>(?<b>.*?)</p>.*?<p>(?<c>.*?)</p>.*?<p>(?<d>.*?)</p>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            foreach (Match item in regex.Matches(res))
+            {
+                foreach (Capture i in item.Groups["ques"].Captures)
+                {
+                    string ques = "";
+                    Regex reg2 = new Regex(@">(?<que>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match item2 in reg2.Matches(i.ToString()))
+                        foreach (Capture i2 in item2.Groups["que"].Captures)
+                            if ((i2.ToString().Trim() != " ") && (i2.ToString().Trim().Contains("\t") == false)) ques += i2.ToString().Trim() + " ";
+                    list.Add(new Question() { question = ques.Trim() });
+                }
+                foreach (Capture i in item.Groups["a"].Captures)                    
+                    list[i1].ans1 = i.ToString().Replace("A. ", "").Trim();
+                foreach (Capture i in item.Groups["b"].Captures)
+                    list[i1].ans2 = i.ToString().Replace("B. ", "").Trim();
+                foreach (Capture i in item.Groups["c"].Captures)
+                    list[i1].ans3 = i.ToString().Replace("C. ", "").Trim();
+                foreach (Capture i in item.Groups["d"].Captures)
+                    list[i1].ans4 = i.ToString().Replace("D. ", "").Trim();
+                i1++;
+            }
+            return list;
+        }
+
+        public void Crawler_DeThi_Tracnghiemdotnet(string link)
+        {
+
+        }
+
+        public void Get_TrueAnswer_InTracnghiemdotnet(string link)
+        {
+
         }
 
 
