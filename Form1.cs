@@ -24,12 +24,7 @@ namespace Crawl_WebLearnChooseAnswer
 
             List<Question> list = new List<Question>();
             list = func.Crawler_Tracnghiemdotnet(link);
-            foreach (var item in list)
-            {
-                richTextBox1.Text += item.ans1 + "\n" + item.ans2 + "\n" + item.ans3 + "\n" + item.ans4 + "\n\n";
-            }
-            //Func_Utilities.ExportQuestion("Test", list);
-
+            Func_Utilities.ExportQuestion("Test", list);           
             //richTextBox1.Text = func.Crawler_Tracnghiemdotnet(link);
         }
     }
