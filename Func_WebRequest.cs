@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using xNet;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -25,6 +21,7 @@ namespace Crawl_WebLearnChooseAnswer
             }
 
         }
+
         public List<Question> Crawler_Khoahocdotvietjack(string link)
         {
             #region Setting list & Bắt request
@@ -339,16 +336,43 @@ namespace Crawl_WebLearnChooseAnswer
                     #endregion
                 }            
             }
-
-
             #endregion
             return list;
             #endregion
         }
 
-        public void Crawler_DeThi_Tracnghiemdotnet(string link)
+        public List<Question> Crawler_DeThi_Tracnghiemdotnet(string link)
         {
-
+            #region Setting list và crawler
+            List<Question> list = new List<Question>();
+            xNetStandard.HttpRequest http = new xNetStandard.HttpRequest();
+            string res = http.Get(link).ToString();
+            #endregion
+            #region Xử lí dữ liệu
+            int i1 = 0;           
+            Regex regex = new Regex(@"<h4>.*?</h4>.*?<a href=""(?<link>.*?)""><h4>.*?<p>(?<ques>.*?)</p>.*?<p>(?<a>.*?)</p>.*?<p>(?<b>.*?)</p>.*?<p>(?<c>.*?)</p>.*?<p>(?<d>.*?)</p>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            foreach (Match item in regex.Matches(res))
+            {
+                #region Câu hỏi
+                foreach (Capture i in item.Groups["ques"].Captures)
+                    list.Add(new Question() { question = i.ToString() });
+                #endregion
+                #region 4 đáp án và câu trả lời đúng
+                foreach (Capture i in item.Groups["a"].Captures)
+                    list[i1].ans1 = i.ToString().Replace("A. ", "").Trim();
+                foreach (Capture i in item.Groups["b"].Captures)
+                    list[i1].ans2 = i.ToString().Replace("B. ", "").Trim();
+                foreach (Capture i in item.Groups["c"].Captures)
+                    list[i1].ans3 = i.ToString().Replace("C. ", "").Trim();
+                foreach (Capture i in item.Groups["d"].Captures)
+                    list[i1].ans4 = i.ToString().Replace("D. ", "").Trim();
+                foreach (Capture i in item.Groups["link"].Captures)
+                    list[i1].correctAns = Get_TrueAnswer_InTracnghiemdotnet(i.ToString());
+                i1++;
+                #endregion
+            }
+            return list;
+            #endregion
         }
 
         public string Get_TrueAnswer_InTracnghiemdotnet(string link)
@@ -360,6 +384,13 @@ namespace Crawl_WebLearnChooseAnswer
 
         }
 
+        public string Crawler_cungthionline(string link)
+        {
+            HttpRequest http = new HttpRequest();
+            return http.Get(link).ToString();
+            //@"class=""ContainerIndent"">(?<ques>.*?)</span>.*?=""answer_unselected"">(?<a>.*?)=""answer_unselected""(.*?)=""answer_unselected""(.*?)=""answer_unselected""(.*?)</div>"
+            //@"<a href=""(https://cungthi.online/cau-hoi/.*?)"">"
 
+        }
     }
 }

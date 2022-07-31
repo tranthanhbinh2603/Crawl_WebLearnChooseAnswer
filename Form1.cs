@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Crawl_WebLearnChooseAnswer
@@ -21,11 +15,14 @@ namespace Crawl_WebLearnChooseAnswer
         {
             Func_WebRequest func = new Func_WebRequest();
             string link = textBox1.Text;
+            //List<Question> list = func.Crawler_DeThi_Tracnghiemdotnet(link);
+            //foreach (var item in list)
+            //{
+            //    richTextBox1.Text += item.ans1 + "\n\n\n";
+            //}
 
-            List<Question> list = new List<Question>();
-            list = func.Crawler_Tracnghiemdotnet(link);
-            Func_Utilities.ExportQuestion("Test", list);           
-            //richTextBox1.Text = func.Crawler_Tracnghiemdotnet(link);
+            richTextBox1.Text = func.Crawler_cungthionline(link);
+            
         }
     }
 }
