@@ -384,13 +384,100 @@ namespace Crawl_WebLearnChooseAnswer
 
         }
 
-        public string Crawler_cungthionline(string link)
+        public List<Question> Crawler_cungthionline(string link)
         {
+            #region Setting list và crawer data
+            List<Question> list = new List<Question>();
             HttpRequest http = new HttpRequest();
-            return http.Get(link).ToString();
-            //@"class=""ContainerIndent"">(?<ques>.*?)</span>.*?=""answer_unselected"">(?<a>.*?)=""answer_unselected""(.*?)=""answer_unselected""(.*?)=""answer_unselected""(.*?)</div>"
-            //@"<a href=""(https://cungthi.online/cau-hoi/.*?)"">"
+            string res = http.Get(link).ToString();
+            #endregion
+            #region Xử lí dữ liệu
+            Regex regex = new Regex(@"class=""ContainerIndent"">(?<ques>.*?)</span>.*?=""answer_unselected"">(?<a>.*?)=""answer_unselected""(?<b>.*?)=""answer_unselected""(?<c>.*?)=""answer_unselected""(?<d>.*?)</div>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            int i1 = 0;
+            foreach (Match item in regex.Matches(res))
+            {
+                #region Câu hỏi
+                foreach (Capture i in item.Groups["ques"].Captures)
+                    list.Add(new Question() { question = i.ToString().Replace("</b>", "").Replace("<br>","").Replace("<b>","").Trim() });
+                #endregion
+                #region 4 đáp án và câu trả lời đúng
+                foreach (Capture i in item.Groups["a"].Captures)
+                {
+                    string ques = "";
+                    Regex reg2 = new Regex(@">(?<que>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match item2 in reg2.Matches(i.ToString()))
+                        foreach (Capture i2 in item2.Groups["que"].Captures)
+                            if ((i2.ToString().Trim() != " ") && (i2.ToString().Trim().Contains("\t") == false)) ques += i2.ToString().Trim() + " ";
+                    list[i1].ans1 = ques.Replace("A.", "").Trim();
+                }
+                foreach (Capture i in item.Groups["b"].Captures)
+                {
+                    string ques = "";
+                    Regex reg2 = new Regex(@">(?<que>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match item2 in reg2.Matches(i.ToString()))
+                        foreach (Capture i2 in item2.Groups["que"].Captures)
+                            if ((i2.ToString().Trim() != " ") && (i2.ToString().Trim().Contains("\t") == false)) ques += i2.ToString().Trim() + " ";
+                    list[i1].ans2 = ques.Replace("B.", "").Trim();
+                }
+                foreach (Capture i in item.Groups["c"].Captures)
+                {
+                    string ques = "";
+                    Regex reg2 = new Regex(@">(?<que>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match item2 in reg2.Matches(i.ToString()))
+                        foreach (Capture i2 in item2.Groups["que"].Captures)
+                            if ((i2.ToString().Trim() != " ") && (i2.ToString().Trim().Contains("\t") == false)) ques += i2.ToString().Trim() + " ";
+                    list[i1].ans3 = ques.Replace("C.", "").Trim();
+                }
+                foreach (Capture i in item.Groups["d"].Captures)
+                {
+                    string ques = "";
+                    Regex reg2 = new Regex(@">(?<que>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match item2 in reg2.Matches(i.ToString()))
+                        foreach (Capture i2 in item2.Groups["que"].Captures)
+                            if ((i2.ToString().Trim() != " ") && (i2.ToString().Trim().Contains("\t") == false)) ques += i2.ToString().Trim() + " ";
+                    list[i1].ans4 = ques.Replace("D.", "").Trim();
+                }
+                i1++;
+                #endregion
+            }
+            #region Đáp án đúng
+            i1 = 0;
+            Regex regex1 = new Regex(@"<a href=""(?<res>https://cungthi.online/cau-hoi/.*?)"">", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            foreach (Match item in regex1.Matches(res))
+            {
+                foreach (Capture i in item.Groups["res"].Captures)
+                {
+                    list[i1].correctAns = Get_TrueAnswer_cungthionline(i.ToString());
+                }
+                i1++;
+            }
+            return list;
+            #endregion
+            #endregion
+        }
+
+        public string Get_TrueAnswer_cungthionline(string link)
+        {
+            xNetStandard.HttpRequest http = new xNetStandard.HttpRequest();
+            string res = http.Get(link).ToString();
+            Regex regex = new Regex(@"<span class=""label_result"">Đáp án:</span>(?<res>\w{1})", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            return regex.Matches(res)[0].Groups["res"].Captures[0].ToString();
 
         }
+
+        public string Crawler_TuHoc365(string link)
+        {
+            List<Question> list = new List<Question>();
+            HttpRequest http = new HttpRequest();
+            string res = http.Get(link).ToString();
+            Regex regex = new Regex(@"<a href=""(?<link>https://tuhoc365.vn/question/.*?/)"" class=""col-md-12"">", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            foreach (Match item in regex.Matches(res))
+            {
+                foreach (Capture i in item.Groups["link"].Captures)
+                    list.Add(new Question() { question = i.ToString().Replace("</b>", "").Replace("<br>", "").Replace("<b>", "").Trim() });
+            }
+            return "";
+        }
+        
     }
 }

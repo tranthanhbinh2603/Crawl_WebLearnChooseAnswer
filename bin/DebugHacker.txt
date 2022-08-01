@@ -1,0 +1,9 @@
+Chương trình viết bằng ngôn ngữ bậc cao có ưu điểm:		2	Thực hiện nhanh	Viết mất nhiều thời gian	Ngắn gọn dễ hiểu	Không cần phải dịch khi chạy		0 0 1 0
+Chương trình dịch không có khả năng nào trong các khả năng sau ?		2	Phát hiện được lỗi ngữ nghĩa;	Phát hiện được lỗi cú pháp;	Thông báo lỗi cú pháp;	Tạo được chương trình đích.		1 0 0 0
+Thông dịch:		2	Các đại lượng của Pascal	Dịch từng lệnh	Dịch toàn bộ chương trình	Chạy chương trình		0 1 0 0
+Hằng:		2	Đại lượng không đổi trong quá trình thực hiện chương trình	Đại lượng có thể thay đổi	Khai báo bằng từ khóa VAR	Không cần khai báo khi dùng		1 0 0 0
+Biên dịch là:		2	Các đại lượng của Pascal	Dịch từng lệnh	Dịch toàn bộ chương trình	Chạy chương trình		0 0 1 0
+Biến:		2	Là đại lượng không đổi	Giá trị có thể thay đổi	Tên không cần theo nguyên tắc đặt tên	Không cần khai báo trước khi sử dụng		0 1 0 0
+Chương trình viết bằng ngôn ngữ máy có ưu điểm:		2	Máy tính có thể hiểu được trực tiếp chương trình này;	Kiểu dữ liệu và cách tổ chức dữ liệu đa dạng, thuận tiện cho việc mô tả thuật toán;	Diễn đạt gần với ngôn ngữ tự nhiên;	Dễ viết và dễ hiệu chỉnh.		1 0 0 0
+Chương trình dịch:		2	Dịch ngôn ngữ tự nhiên ra ngôn ngữ máy	Dịch ngôn ngữ máy ra ngôn ngữ tự nhiên	Dịch từ hợp ngữ ra ngôn ngữ bậc cao	Dịch từ ngôn ngữ bậc cao ra ngôn ngữ máy		0 0 0 1
+Chương trình viết bằng ngôn ngữ bậc cao không có đặc điểm nào trong các đặc điểm sau ?		2	Không phụ thuộc vào loại máy, chương trình có thể thực hiện trên nhiều loại máy;	Ngắn gọn, dễ hiểu, dễ hiệu chỉnh và nâng cấp;	Kiểu dữ liệu và cách tổ chức dữ liệu đa dạng, thuận tiện cho mô tả thuật toán;	Máy tính có thể hiểu và thực hiện trực tiếp chương trình này.		0 0 0 1
