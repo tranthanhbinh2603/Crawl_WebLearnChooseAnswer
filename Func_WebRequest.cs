@@ -465,19 +465,49 @@ namespace Crawl_WebLearnChooseAnswer
 
         }
 
-        public string Crawler_TuHoc365(string link)
+        public List<Question> Crawler_TuHoc365(string link)
         {
             List<Question> list = new List<Question>();
             HttpRequest http = new HttpRequest();
             string res = http.Get(link).ToString();
+            int i1 = 0;
             Regex regex = new Regex(@"<a href=""(?<link>https://tuhoc365.vn/question/.*?/)"" class=""col-md-12"">", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
             foreach (Match item in regex.Matches(res))
-            {
+            {               
                 foreach (Capture i in item.Groups["link"].Captures)
-                    list.Add(new Question() { question = i.ToString().Replace("</b>", "").Replace("<br>", "").Replace("<b>", "").Trim() });
+                {
+                    HttpRequest http1 = new HttpRequest();
+                    string res1 = http1.Get(i.ToString()).ToString();
+                    Regex regex1 = new Regex(@"<div class=""content-quiz mg-top-10"">.*?<p><p>(?<ques>.*?)</p></p>.*?<span class=""text-uppercase""></span>(?<a>.*?)</div>.*?<span class=""text-uppercase""></span>(?<b>.*?)</div>.*?<span class=""text-uppercase""></span>(?<c>.*?)</div>.*?<span class=""text-uppercase""></span>(?<d>.*?)</div>.*?<span class=""text-uppercase"">(?<ans>.*?)</span></span>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                    foreach (Match item1 in regex1.Matches(res1))
+                    {
+                        foreach (Capture i2 in item1.Groups["ques"].Captures)
+                            list.Add(new Question() { question = i2.ToString().Replace("<span style=\"font-weight: 400\">", "").Replace("</span>", "").Replace("&nbsp;", "").Trim() });
+                        foreach (Capture i2 in item1.Groups["a"].Captures)
+                            list[i1].ans1 = i2.ToString().Replace("<span style=\"font-weight: 400\">", "").Replace("</span>", "").Replace("&nbsp;", "").Trim();
+                        foreach (Capture i2 in item1.Groups["b"].Captures)
+                            list[i1].ans2 = i2.ToString().Replace("<span style=\"font-weight: 400\">", "").Replace("</span>", "").Replace("&nbsp;", "").Trim();
+                        foreach (Capture i2 in item1.Groups["c"].Captures)
+                            list[i1].ans3 = i2.ToString().Replace("<span style=\"font-weight: 400\">", "").Replace("</span>", "").Replace("&nbsp;", "").Trim();
+                        foreach (Capture i2 in item1.Groups["d"].Captures)
+                            list[i1].ans4 = i2.ToString().Replace("<span style=\"font-weight: 400\">", "").Replace("</span>", "").Replace("&nbsp;", "").Trim();
+                        foreach (Capture i2 in item1.Groups["ans"].Captures)
+                            list[i1].correctAns = i2.ToString().Replace("<span style=\"font-weight: 400\">", "").Replace("</span>", "").Replace("&nbsp;", "").Trim().ToUpper();
+
+                        i1++;
+                    }
+                }
             }
-            return "";
+            return list;
         }
         
+
+        public string Crawler_loigiaihay(string link)
+        {
+            List<Question> list = new List<Question>();
+            HttpRequest http = new HttpRequest();
+            string res = http.Get(link).ToString();
+            return res;
+        }
     }
 }

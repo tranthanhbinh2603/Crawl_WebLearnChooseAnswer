@@ -18,12 +18,12 @@ namespace Crawl_WebLearnChooseAnswer
             //List<Question> list = func.Crawler_TuHoc365(link);
             //foreach (var item in list)
             //{
-            //    richTextBox1.Text += item.question + "\n";
-            //    richTextBox1.Text += item.ans1 + "\n" + item.ans2 + "\n" + item.ans3 + "\n" + item.ans4 + "\n";
-            //    richTextBox1.Text += item.correctAns + "\n\n";
+            ////    richTextBox1.Text += item.question + "\n";
+            ////    richTextBox1.Text += item.ans1 + "\n" + item.ans2 + "\n" + item.ans3 + "\n" + item.ans4 + "\n";
+            ////    richTextBox1.Text += item.correctAns + "\n\n";
             //}
 
-            richTextBox1.Text = func.Crawler_TuHoc365(link);
+            richTextBox1.Text = func.Crawler_loigiaihay(link);
 
             //https://cungthi.online/cau-hoi/chuong-trinh-viet-bang-ngon-ngu-bac-cao-khong-co-dac--279970-9414.html
             //richTextBox1.Text = func.Get_TrueAnswer_cungthionline(link);
