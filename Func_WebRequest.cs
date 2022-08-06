@@ -500,14 +500,32 @@ namespace Crawl_WebLearnChooseAnswer
             }
             return list;
         }
-        
 
-        public string Crawler_loigiaihay(string link)
+
+        public string Crawler_VungOi(string link)
         {
+            //List<Question> list = new List<Question>();
+            //HttpRequest http = new HttpRequest();
+            //string res = http.Get(link).ToString();
+            //return res;
+            //Regex regex = new Regex(@"<a href=""(?<link>cau-hoi-.*?)""", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+            //foreach (Match item in regex.Matches(res))
+            //{
+            //    foreach (Capture i in item.Groups["link"].Captures)
+            //    {
+
+            //    }
+            //}
             List<Question> list = new List<Question>();
             HttpRequest http = new HttpRequest();
             string res = http.Get(link).ToString();
             return res;
+            //@"""answers"".*?""content"":"".*?""}],""answer_key"":"".*?"",""correct"":(true|false)" - Đáp án đầu tiên
+            //@"""content"":"".*?""}],""answer_key"":"".*?"",""correct"":(true|false)" - 3 đáp án còn lại
+            //Lợi dụng true/false tìm ra đáp án đúng
+            // @"<meta property=""og:description"" content=""(?<ques>.*?)""/>" - Câu hỏi
+
+
         }
     }
 }
