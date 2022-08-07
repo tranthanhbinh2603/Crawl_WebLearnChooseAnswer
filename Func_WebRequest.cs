@@ -502,30 +502,75 @@ namespace Crawl_WebLearnChooseAnswer
         }
 
 
-        public string Crawler_VungOi(string link)
+        public List<Question> Crawler_VungOi(string link)
         {
-            //List<Question> list = new List<Question>();
-            //HttpRequest http = new HttpRequest();
-            //string res = http.Get(link).ToString();
-            //return res;
-            //Regex regex = new Regex(@"<a href=""(?<link>cau-hoi-.*?)""", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
-            //foreach (Match item in regex.Matches(res))
-            //{
-            //    foreach (Capture i in item.Groups["link"].Captures)
-            //    {
-
-            //    }
-            //}
             List<Question> list = new List<Question>();
-            HttpRequest http = new HttpRequest();
-            string res = http.Get(link).ToString();
-            return res;
-            //@"""answers"".*?""content"":"".*?""}],""answer_key"":"".*?"",""correct"":(true|false)" - Đáp án đầu tiên
-            //@"""content"":"".*?""}],""answer_key"":"".*?"",""correct"":(true|false)" - 3 đáp án còn lại
-            //Lợi dụng true/false tìm ra đáp án đúng
-            // @"<meta property=""og:description"" content=""(?<ques>.*?)""/>" - Câu hỏi
+            try
+            {
+                //List<Question> list = new List<Question>();
+                //HttpRequest http = new HttpRequest();
+                //string res = http.Get(link).ToString();
+                //return res;
+                //Regex regex = new Regex(@"<a href=""(?<link>cau-hoi-.*?)""", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                //foreach (Match item in regex.Matches(res))
+                //{
+                //    foreach (Capture i in item.Groups["link"].Captures)
+                //    {
 
+                //    }
+                //}
+                
+                HttpRequest http = new HttpRequest();
+                string res = http.Get(link).ToString();
+                //@"""answers"".*?""content"":"".*?""}],""answer_key"":"".*?"",""correct"":(true|false)" - Đáp án đầu tiên
+                //@"""content"":"".*?""}],""answer_key"":"".*?"",""correct"":(true|false)" - 3 đáp án còn lại
+                //Lợi dụng true/false tìm ra đáp án đúng
 
+                //Câu hỏi
+                Regex regex = new Regex(@"<meta property=""og:description"" content=""(?<ques>.*?)""/>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                list.Add(new Question() { question = regex.Matches(res)[0].Groups["ques"].Captures[0].ToString() });
+                //Câu trả lời
+                Regex regexAns1Ver1 = new Regex(@"""answers"".*?""content"":""(?<ans>.*?)""}],", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                Regex regexAnsNon1Ver1 = new Regex(@"""content"":""(?<ans>.*?)""}],""answer_key"":"".*?"",""correct"":(?<isTrue>true|false)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                Regex regexClear = new Regex(@">(?<que>.*?)<", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                Regex regexAnsVer2 = new Regex(@"{""correct"":(?<isTrue>true|false),""answer_key"":"".*?"",""text"":\[{""content"":""(?<ans>.*?)"",""type"":""html""}\]", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline | RegexOptions.Singleline);
+                if (regexAns1Ver1.Matches(res)[0].Groups["ans"].Captures[0].ToString().Contains("<"))
+                {
+                    foreach (Match item in regexClear.Matches(regexAns1Ver1.Matches(res)[0].Groups["ans"].Captures[0].ToString()))
+                    {
+                        foreach (Capture i in item.Groups["que"].Captures)
+                        {
+                            list[0].ans1 += i.ToString();
+                        }
+                    }
+                    list[0].ans1 = list[0].ans1.Trim();
+                }
+                else
+                {
+                    list[0].ans1 = regexAns1Ver1.Matches(res)[0].Groups["ans"].Captures[0].ToString().Trim();
+                }
+                //regexAnsNon1Ver1.Matches(res).Count
+                if (regexAnsNon1Ver1.Matches(res).Count > 0)
+                {
+                    list[0].ans2 = regexAnsNon1Ver1.Matches(res)[1].Groups["ans"].Captures[0].ToString();
+                    list[0].ans3 = regexAnsNon1Ver1.Matches(res)[2].Groups["ans"].Captures[0].ToString();
+                    list[0].ans4 = regexAnsNon1Ver1.Matches(res)[3].Groups["ans"].Captures[0].ToString();
+                }
+                else
+                {
+                    list[0].ans2 = regexAnsVer2.Matches(res)[1].Groups["ans"].Captures[0].ToString();
+                    list[0].ans3 = regexAnsVer2.Matches(res)[2].Groups["ans"].Captures[0].ToString();
+                    list[0].ans4 = regexAnsVer2.Matches(res)[3].Groups["ans"].Captures[0].ToString();
+                }
+
+                return list;
+            }
+            catch
+            {
+
+            }
+
+            return list;
         }
     }
 }
