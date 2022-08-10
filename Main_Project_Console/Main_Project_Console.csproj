@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="xNet">
+      <HintPath>..\Crawl_WebLearnChooseAnswer\bin\Debug\xNet.dll</HintPath>
+    </Reference>
+    <Reference Include="xNetStandard">
+      <HintPath>..\Crawl_WebLearnChooseAnswer\bin\Debug\xNetStandard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

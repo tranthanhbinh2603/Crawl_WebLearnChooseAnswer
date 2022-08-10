@@ -1,0 +1,16 @@
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\Main_Project_Console.exe
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\Main_Project_Console.deps.json
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\Main_Project_Console.runtimeconfig.json
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\Main_Project_Console.runtimeconfig.dev.json
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\Main_Project_Console.dll
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\Main_Project_Console.pdb
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.csproj.AssemblyReference.cache
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.GeneratedMSBuildEditorConfig.editorconfig
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.AssemblyInfoInputs.cache
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.AssemblyInfo.cs
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.csproj.CoreCompileInputs.cache
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.dll
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.pdb
+E:\Document\Project\Main_Project_Console\obj\Debug\netcoreapp3.1\Main_Project_Console.genruntimeconfig.cache
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\xNet.dll
+E:\Document\Project\Main_Project_Console\bin\Debug\netcoreapp3.1\xNetStandard.dll

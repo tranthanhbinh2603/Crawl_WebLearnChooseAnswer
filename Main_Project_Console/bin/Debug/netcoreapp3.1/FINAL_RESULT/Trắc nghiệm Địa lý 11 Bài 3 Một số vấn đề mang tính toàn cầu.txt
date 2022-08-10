@@ -1,0 +1,10 @@
+Việc dân số thế giới tăng nhanh đã		2	Thúc đẩy nhanh sự phát triển kinh tế	Làm cho tài nguyên suy giảm và ô nhiễm môi trường	Thúc đẩy gió dục và y tế phát triển	Làm cho chất lượng cuộc sống ngày càng tăng		0 1 0 0
+Dân số già sẽ dẫ tới hậu quả nào sau đây?		2	Thất nghiệp và thếu việc làm	Thiếu hụt nguồn lao động cho đất nước	Gây sức ép tới tài nguyên môi trường	Tài nguyên nhanh chóng cạn kiệt		0 1 0 0
+Ở Việt Nam, vùng sẽ chịu ảnh hưởng nặng nề nhất của biến đổi khí hậu do nước biển dâng là		2	Trung du và miền núi Bắc Bộ	Đồng bằng sông Hồng	Tây Nguyên	Đồng bằng sông Cửu Long		0 0 0 1
+Năm 2016, hiện tượng cá chết hàng loạt ở một số tỉnh miền Trung của Việt Nam là do		2	Nước biển nóng lên	Hiện tương thủy triều đỏ	Ô nhiễm môi trường nước	Độ mặn của nước biển tăng		0 0 1 0
+Để bảo vệ động, thực vật quý hiếm khỏi nguy cơ tuyệt chủng cần		2	Tăng cường nuôi trồng.	Đưa chúng đến các vườn hú, công viên.	Tuyệt đối không được khai thác.	Đưa vào Sách đỏ để bảo vệ.		0 0 0 1
+Để giải quyết các vấn đề mang tính toàn cầu cần sự hợp tác giữa		2	Các quốc gia trên thế giới	Các quốc gia phát triển	Các quốc gia đang phát triển	Một số cường quốc kinh tế		1 0 0 0
+Trong những thập niên cuối thế kỉ XX và đầu thế kỉ XXI, mối đe dọa rực tiếp tới ổn định, hòa bình thế giới là		2	Làn sóng di cư tới các nước phát triển	Nạn bắt cóc người, buôn bán nô lệ	Khủng bố, xung đột sắc tộc, xung đột tôn giáo.	Buôn bán, vận chuyển động vật hoang dã.		0 0 1 0
+Suy giảm đa dạng sinh học sẽ dẫn tới hậu quả nào sau đây?		2	Nước biển ngày càng dâng cao	Xâm nhập mặn ngày càng sâu vào đất liền	Mất đi nhiều loài sinh vật, các gen di truyền	Gia tăng các hiện tượng động đất, núi lửa		0 0 1 0
+Nguyên nhân chính làm suy giảm đa dạng sinh vật hiện nay là		2	Cháy rừng	Ô nhiễm môi trường	Biến đổi khí hậu	Con người khai thác quá mức		0 0 0 1
+Trong các loại khí thải sau, loại khí thải nào đã làm tầng ôdôn mỏng dần?		2	O 3	CFCs	CO 2	N 2 O		0 1 0 0
