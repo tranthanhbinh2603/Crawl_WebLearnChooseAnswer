@@ -1,17 +1,17 @@
 # Hãy đọc để hiểu về cách sử dụng
 
 ## I. Cách để sử dụng:
-Bước 1: Paste từng link vào file input.txt. Mỗi link 1 dòng. Bạn cần lấy link theo hướng dẫn ở mục III.\n
+Bước 1: Paste từng link vào file input.txt. Mỗi link 1 dòng. Bạn cần lấy link theo hướng dẫn ở mục III.<br />
 Bước 2: Run file Main_Project_Console.exe để chạy
 
 ## II. Các trang web support
-khoahoc.vietjack.com
-hoc247.net
-tracnghiem.net
-cungthi.online
-tuhoc365.vn
-cunghocvui.com
-tech12h.com
+khoahoc.vietjack.com<br />
+hoc247.net<br />
+tracnghiem.net<br />
+cungthi.online<br />
+tuhoc365.vn<br />
+cunghocvui.com<br />
+tech12h.com<br />
 
 ## III. Cách lấy link
 ### 1. khoahoc.vietjack.com
