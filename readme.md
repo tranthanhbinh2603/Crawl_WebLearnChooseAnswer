@@ -1,7 +1,7 @@
 # Hãy đọc để hiểu về cách sử dụng
 
 ## I. Cách để sử dụng:
-Bước 1: Paste từng link vào file input.txt. Mỗi link 1 dòng. Bạn cần lấy link theo hướng dẫn ở mục III.
+Bước 1: Paste từng link vào file input.txt. Mỗi link 1 dòng. Bạn cần lấy link theo hướng dẫn ở mục III.\n
 Bước 2: Run file Main_Project_Console.exe để chạy
 
 ## II. Các trang web support
