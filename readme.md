@@ -37,4 +37,37 @@ Khi kết quả hiện ra, copy link.
 - Copy link 
 ![image](https://user-images.githubusercontent.com/65013334/184109989-4aac15e5-53ed-421d-b81e-49b7b6d82729.png)
 
+### 3. tracnghiem.net
+- Vào tab https://tracnghiem.net/de-kiem-tra/
+- Chọn bài kiểm tra. Loại kiểm tra nào cũng được, rồi nhấn vào tiêu đề, sau đó copy link.
+![image](https://user-images.githubusercontent.com/65013334/184110866-74e90a10-f419-41d8-9b83-9004b05708db.png)
+![image](https://user-images.githubusercontent.com/65013334/184110935-a36316ba-8975-4a67-b505-4e8b748a0b92.png)
+![image](https://user-images.githubusercontent.com/65013334/184110996-8c607e51-4247-4038-8826-ea3f6108b85d.png)
+
+### 4. cungthi.online
+- Vào thẳng tab https://cungthi.online/de-kiem-tra.html
+- Chọn bài kiểm tra. 
+- Copy link
+![image](https://user-images.githubusercontent.com/65013334/184111242-2ce12524-5500-449e-8c05-0eaf738e1263.png)
+![image](https://user-images.githubusercontent.com/65013334/184111292-30f9278d-1111-4a59-a467-565226e043af.png)
+
+### 5. tuhoc365.vn
+Chọn các bài free. Sau đó copy link
+![image](https://user-images.githubusercontent.com/65013334/184111459-8404d617-255a-463e-ad77-d0c637fcf78e.png)
+![image](https://user-images.githubusercontent.com/65013334/184111518-b4b7c3e8-2b71-4af3-8b44-53ca18451d7d.png)
+
+### 6. cunghocvui.vn
+- Vào link https://cunghocvui.com/de-thi-&-kiem-tra
+- Chọn 1 đề
+- Copy link
+![image](https://user-images.githubusercontent.com/65013334/184111690-d2bf51bc-585d-447e-958e-cd6b40e90391.png)
+![image](https://user-images.githubusercontent.com/65013334/184111766-696bba30-2c95-47e9-8a65-625edce0ff4d.png)
+
+### 7. TECH24H.VN
+- Chọn bài kiểm tra, copy link
+![image](https://user-images.githubusercontent.com/65013334/184111859-c4e9c98f-0143-459e-84e7-c1fa6fadccb5.png)
+
+## III. Một vài điều tâm sự
+1. Không có cập nhật / ít cập nhật. Vì mình còn bận đi học. Bạn cứ viết issue, cái nào mình sửa được mình sẽ cố sửa
+2. Không get được hình, chỉ get được chữ. Cái này vì mình cũng ít get các môn như hoá, toán
 
