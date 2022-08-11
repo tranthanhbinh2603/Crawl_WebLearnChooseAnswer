@@ -24,12 +24,12 @@ Khi kết quả hiện ra, copy link.
 ![alt text](https://user-images.githubusercontent.com/65013334/184109073-f58d6a16-9aec-4204-9244-1ebedfb9c96c.png)
 
 ### 2. hoc247.net
-**Đối với lấy link trong mục "Chương trình":
+**Đối với lấy link trong mục "Chương trình":**
 - Chọn bài cần lấy. Ví dụ: https://hoc247.net/dia-ly-11/bai-2-xu-huong-toan-cau-hoa-khu-vuc-hoa-kinh-te-l2150.html, sau đó chọn tab chọn tab Trắc Nghiệm
 ![alt text](https://user-images.githubusercontent.com/65013334/184109604-954668c1-2aae-4b7f-a43b-b19d6f15d748.png)
 - Copy link
 ![alt text](https://user-images.githubusercontent.com/65013334/184109649-7259abbd-2bcd-4281-9c75-acd71597e3f0.png)
-**Đối với bài thi trong "Đề Thi":
+**Đối với bài thi trong "Đề Thi":**
 - Chọn bộ đề thi cần lấy
 ![image](https://user-images.githubusercontent.com/65013334/184109862-ce054f1f-5d8c-43f9-8962-492a9293f140.png)
 - Nhấn vào tiêu đề trong đề thi như hình dưới:
