@@ -15,13 +15,14 @@ tech12h.com<br />
 
 ## III. Cách lấy link
 ### 1. khoahoc.vietjack.com
-**Chú ý: Lấy dữ liệu vào file cokkies_vietjack.txt theo hướng dẫn sau đây:
-Nhấn F12. Trong tab vừa nhấn F12, vào link này (Bạn có thể chọn trang kết quả nào cũng được):
+**Chú ý: Lấy dữ liệu vào file cokkies_vietjack.txt theo hướng dẫn sau đây:**
+**Nhấn F12. Trong tab vừa nhấn F12, vào link này (Bạn có thể chọn trang kết quả nào cũng được):**
 https://khoahoc.vietjack.com/thi-online/trac-nghiem-sinh-hoc-11-bai-1-co-dap-an-su-hap-thu-nuoc-va-muoi-khoang-o-re-phan-2/5534/ket-qua
-Sau đó vào tab Network, kéo lên trên cùng, có hàng ghi "ket-qua". Nhấn vào đó, bên phải xuất hiện 1 núi hàng, trong mục Request Header có mục cokkies. Copy phần sau: paste vào file. 
+**Sau đó vào tab Network, kéo lên trên cùng, có hàng ghi "ket-qua". Nhấn vào đó, bên phải xuất hiện 1 núi hàng, trong mục Request Header có mục cokkies. Copy phần sau: paste vào file. **
 ![image](https://user-images.githubusercontent.com/65013334/184329040-bb9db3ab-cd9b-4dd0-975b-b00d23d55bb0.png)
 ![image](https://user-images.githubusercontent.com/65013334/184329181-ed69c27d-d43e-4f42-a43a-599132dd611f.png)
-**
+
+
 Chọn bài kiểm tra cần lấy, chẳng hạn: https://khoahoc.vietjack.com/thi-online/trac-nghiem-sinh-hoc-11-bai-1-co-dap-an-su-hap-thu-nuoc-va-muoi-khoang-o-re-phan-1/5526, Sau đó thực hiện test bài kiểm tra (nhấn nút "Bắt đầu làm bài")
 ![alt text](https://user-images.githubusercontent.com/65013334/184108903-c3e526ec-6502-479e-bd5f-73ba9f17907c.png)
 Tiếp chọn "Nộp bài", nhấn nút "Xác nhận"
