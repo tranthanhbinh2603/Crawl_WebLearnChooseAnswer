@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Document\\Project\\Main_Project_Console\\Main_Project_Console.csproj",
+      "projectUniqueName": "E:\\Document\\Project\\Crawl_WebLearnChooseAnswer\\Main_Project_Console\\Main_Project_Console.csproj",
       "projectName": "Main_Project_Console",
-      "projectPath": "E:\\Document\\Project\\Main_Project_Console\\Main_Project_Console.csproj",
+      "projectPath": "E:\\Document\\Project\\Crawl_WebLearnChooseAnswer\\Main_Project_Console\\Main_Project_Console.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\Document\\Project\\Main_Project_Console\\obj\\",
+      "outputPath": "E:\\Document\\Project\\Crawl_WebLearnChooseAnswer\\Main_Project_Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -27,7 +27,7 @@ namespace Main_Project_Console
                     if (i == 1)
                         Console.WriteLine("[!]DONE");
                     if (i == 0)
-                        Console.WriteLine("[!]ERROR: LINK NOT SUPPORT OR ERROR IN DSA");
+                        Console.WriteLine("[!]ERROR: LINK NOT SUPPORT OR ERROR IN DSA OR NOT FIND FILE cookie_vietjack.txt");
                     if (i == -1)
                         Console.WriteLine("[!]ERROR: THOWN EXCEPTION");
                 }

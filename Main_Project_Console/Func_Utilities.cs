@@ -62,12 +62,20 @@ namespace Crawl_WebLearnChooseAnswer
                 string host = myUri.Host;
                 if (host == "khoahoc.vietjack.com")
                 {
-                    Func_WebRequest func = new Func_WebRequest();
-                    string title = "";
-                    List<Question> list = func.Crawler_Khoahocdotvietjack(link, ref title);
-                    title = title.Replace(":", "").Replace("|", "");
-                    ExportQuestion(title, list);
-                    return 1;
+                    if (File.Exists(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\cookie_vietjack.txt"))
+                    {
+                        Func_WebRequest func = new Func_WebRequest();
+                        string title = "";
+                        List<Question> list = func.Crawler_Khoahocdotvietjack(link, ref title);
+                        title = title.Replace(":", "").Replace("|", "");
+                        ExportQuestion(title, list);
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                   
                 }
                 if (host == "hoc247.net")
                 {

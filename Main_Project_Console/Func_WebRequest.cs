@@ -2,7 +2,8 @@
 using xNet;
 using System.Net;
 using System.Text.RegularExpressions;
-
+using System.IO;
+using System.Reflection;
 
 namespace Crawl_WebLearnChooseAnswer
 {
@@ -29,14 +30,17 @@ namespace Crawl_WebLearnChooseAnswer
             List<Question> list = new List<Question>();
             HttpRequest httpre = new HttpRequest();
             //Cookie. Bắt buộc phải truyền vào
-            httpre.Cookies = new CookieDictionary()
+            httpre.Cookies = new CookieDictionary();
+            StreamReader streread = new StreamReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\cookie_vietjack.txt");
+            string res1 = streread.ReadToEnd();
+            string[] cokkies = res1.Split(";");
+            foreach (var item in cokkies)
             {
-                {"cross-site-cookie", "bar" },
-                {"_ga", "GA1.2.724910773.1637054252" },
-                {"_fbp", "fb.1.1656583363610.990893404" },
-                {"XSRF-TOKEN", "eyJpdiI6IkR0SXNTOTZLc0xSbTdcL3p6MjZ6ZHJRPT0iLCJ2YWx1ZSI6IjdKcUlSTDNJWGlGZnErVVdMY0U3NzYxZDJvWUMyOUt1WVpUZSt2bEhQNWtIb3RmY1QxMEphYkZpWjgzbnVvcCsiLCJtYWMiOiIzZDI1MTEwYTE0OGM2NTQ3M2M2NTQwMWE2MGMyNjU2MGI4MTlmM2YxZDgzOTNjN2Q3OGM2ZjlhMzgyMTgzYzAyIn0" },
-                {"khoahocvietjackcom_session", "eyJpdiI6Ik8rS2RTRndDTkRMVmVqYU5oWFVSbXc9PSIsInZhbHVlIjoicFE3ZDlTM2JuRllLSnRhazJhSnVCdHR3ZTB4eTVWZG04NnQzUDJZN0EzVW1JUENTbThSMys5YXpVOUhGeGljd0hWWnRJNnFzcXM1aW5QY1FvRTY5OXFpazBwZWV0QXF0TE5IOXd5cWlxVXVyTzRLYTMzeG0xWW9LM0E1ZllQOGIiLCJtYWMiOiJlMzQyMTIyMDBkYzMwMzQxNzU0Y2E1ZTE2MzNkZjdjYWQyNDg5N2U0NWQ0NTc5NzBiNTA0ZmNiZDYxZTVmNzliIn0" }
-            };
+                string key = item.Substring(0, item.IndexOf('='));
+                string value = item.Substring(item.IndexOf('=') + 1, item.Length - item.IndexOf('=') - 1);
+                if (httpre.Cookies.ContainsKey(key.Trim()) == false)
+                    httpre.Cookies.Add(key.Trim(), value.Trim());
+            }            
             string res = WebUtility.HtmlDecode(httpre.Get(link).ToString());
             #endregion
             #region Lấy tựa đề trang web
